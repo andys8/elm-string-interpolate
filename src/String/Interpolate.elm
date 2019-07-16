@@ -10,7 +10,7 @@ complex strings in views.
 
 import Array exposing (Array, fromList, get)
 import Maybe exposing (andThen, withDefault)
-import Regex exposing (Match, Regex, fromString, never, replace)
+import Regex exposing (Match, Regex, fromString, replace)
 import String exposing (dropLeft, dropRight, toInt)
 
 
@@ -29,7 +29,7 @@ interpolate string args =
 
 interpolationRegex : Regex
 interpolationRegex =
-    fromString "\\{\\d+\\}" |> withDefault never
+    fromString "\\{\\d+\\}" |> withDefault Regex.never
 
 
 applyInterpolation : Array String -> Match -> String
